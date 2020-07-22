@@ -1,9 +1,14 @@
-import filesManager from "./filesManager";
+import FilesManager from "./FilesManager";
 
-const business = (() => {
-  return {
-    filesManager,
-  };
-})();
+class Business {
+  private _db: any;
 
-export default business;
+  constructor(db: any) {
+    this._db = db;
+  }
+
+  filesManager() {
+    return new FilesManager(this._db);
+  }
+}
+export default Business;

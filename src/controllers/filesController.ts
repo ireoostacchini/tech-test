@@ -1,26 +1,22 @@
 import express from "express";
+import Business from "../business";
 
-const filesController = (() => {
-  const registerRoutes = (router: any, business: any, db: any) => {
+class FilesController {
+  registerRoutes(router: any, business: Business) {
     router.get(
       "/files",
       async (req: express.Request, res: express.Response, next: any) => {
         try {
-          const fileManager = business.filesManager(db);
+          const result = await business.filesManager.getFiles();
 
-          const result = await fileManager.getFiles();
-
+          //   res.json({ Q: "QQ" });
           res.json(result);
         } catch (err) {
           next(err);
         }
       }
     );
-  };
+  }
+}
 
-  return {
-    registerRoutes,
-  };
-})();
-
-export default filesController;
+export default FilesController;

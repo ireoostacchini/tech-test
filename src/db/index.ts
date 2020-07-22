@@ -1,7 +1,15 @@
 import FilesRepository from "./FilesRepository";
+import DbConnectionManager from "./dbConnectionManager";
 
-const db = (() => {
-  return { filesRepository: new FilesRepository() };
-})();
+class Db {
+  private _dbConnectionManager: DbConnectionManager;
 
-export default db;
+  constructor(dbConnectionManager: DbConnectionManager) {
+    this._dbConnectionManager = dbConnectionManager;
+  }
+
+  filesRepository() {
+    return new FilesRepository(this._dbConnectionManager);
+  }
+}
+export default Db;

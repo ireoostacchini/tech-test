@@ -1,8 +1,8 @@
 import config from "../config";
 import knex from "knex";
 
-const dbConnectionManager = (() => {
-  const getKnex = () => {
+class DbConnectionManager {
+  getKnex() {
     const knexConfig = knex({
       client: "pg",
       connection: {
@@ -15,11 +15,7 @@ const dbConnectionManager = (() => {
     });
 
     return knexConfig;
-  };
+  }
+}
 
-  return {
-    getKnex,
-  };
-})();
-
-export default dbConnectionManager;
+export default DbConnectionManager;
