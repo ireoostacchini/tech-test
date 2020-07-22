@@ -13,10 +13,10 @@ jest.mock("../db/FilesRepository", () => {
 });
 
 describe("FileManager", () => {
-  test("adds 1 + 2 to equal 3", async () => {
-    const fm = new FilesManager(db);
+  test("can get files", async () => {
+    const filesManager = new FilesManager(db);
 
-    const result = await fm.getFiles();
+    const result = await filesManager.getFiles();
 
     expect(result.files).toEqual(data);
   });
