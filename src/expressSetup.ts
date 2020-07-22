@@ -7,7 +7,7 @@ const expressSetup = (app: any) => {
 
   // define a route handler for the default home page
   app.get("/", (req: express.Request, res: express.Response) => {
-    res.send("Hello world!");
+    res.send({ greeting: "Hello world!" });
   });
 
   return app;
