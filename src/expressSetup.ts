@@ -14,7 +14,7 @@ const expressSetup = (app: any) => {
   app.use(methodOverride());
   app.use("/api", router);
 
-  //poor person's DI...
+  // poor person's DI...
   const dbConfig = new DbConnectionManager();
   const db = new Db(dbConfig);
   const business = new Business(db);

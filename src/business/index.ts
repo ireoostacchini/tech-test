@@ -1,9 +1,10 @@
 import FilesManager from "./FilesManager";
+import Db from "../db";
 
 class Business {
-  private _db: any;
+  private _db: Db;
 
-  constructor(db: any) {
+  constructor(db: Db) {
     this._db = db;
   }
 
