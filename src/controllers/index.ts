@@ -1,13 +1,10 @@
-import filesController from "./filesController";
+import FilesController from "./FilesController";
+import Business from "../business";
 
-const controllers = (() => {
-  const registerRoutes = (router: any, business: any) => {
-    new filesController().registerRoutes(router, business);
-  };
+class Controllers {
+  registerRoutes(router: any, business: Business) {
+    new FilesController().registerRoutes(router, business);
+  }
+}
 
-  return {
-    registerRoutes,
-  };
-})();
-
-export default controllers;
+export default Controllers;

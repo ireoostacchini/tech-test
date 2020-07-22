@@ -1,7 +1,7 @@
 import express from "express";
 import methodOverride from "method-override";
 import bodyParser from "body-parser";
-import controllers from "./controllers";
+import Controllers from "./Controllers";
 import Db from "./Db";
 import Business from "./business";
 import DbConnectionManager from "./db/DbConnectionManager";
@@ -18,7 +18,7 @@ const expressSetup = (app: any) => {
   const db = new Db(dbConfig);
   const business = new Business(db);
 
-  controllers.registerRoutes(router, business);
+  new Controllers().registerRoutes(router, business);
 
   return app;
 };
