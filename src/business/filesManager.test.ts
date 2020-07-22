@@ -13,7 +13,7 @@ jest.mock("../db/FilesRepository", () => {
 });
 
 describe("FileManager", () => {
-  test("can get files", async () => {
+  it("can get files", async () => {
     const filesManager = new FilesManager(db);
 
     const result = await filesManager.getFiles();
