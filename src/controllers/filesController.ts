@@ -9,7 +9,6 @@ class FilesController {
         try {
           const result = await business.filesManager().getFiles();
 
-          //   res.json({ Q: "QQ" });
           res.json(result);
         } catch (err) {
           next(err);

@@ -15,6 +15,10 @@ Tests
 
 
 
+indexes
+
+
+
 How to run locally
 
 
@@ -23,4 +27,4 @@ How to run locally
 
 todo
 
-remove env file, send separately
+block out env file, send separately
