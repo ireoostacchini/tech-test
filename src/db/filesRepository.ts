@@ -1,10 +1,9 @@
 import FileInfo from "../entities/FIleInfo";
 import dbConnectionManager from "./dbConnectionManager";
 
-const filesRepository = (() => {
-  const knex = dbConnectionManager.getKnex();
-
-  const getFiles = async () => {
+class FilesRepository {
+  async getFiles() {
+    const knex = dbConnectionManager.getKnex();
     const files = await knex("files");
 
     const result = files.map((file) => {
@@ -12,11 +11,7 @@ const filesRepository = (() => {
     });
 
     return result;
-  };
+  }
+}
 
-  return {
-    getFiles,
-  };
-})();
-
-export default filesRepository;
+export default FilesRepository;

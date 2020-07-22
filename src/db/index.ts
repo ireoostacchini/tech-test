@@ -1,7 +1,7 @@
-import filesRepository from "./filesRepository";
+import FilesRepository from "./FilesRepository";
 
 const db = (() => {
-  return { filesRepository };
+  return { filesRepository: new FilesRepository() };
 })();
 
 export default db;

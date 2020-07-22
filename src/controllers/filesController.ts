@@ -1,7 +1,7 @@
 import express from "express";
 
 const filesController = (() => {
-  const registerRoutes = (router: any, business: business, db: any) => {
+  const registerRoutes = (router: any, business: any, db: any) => {
     router.get(
       "/files",
       async (req: express.Request, res: express.Response, next: any) => {
