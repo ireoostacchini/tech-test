@@ -1,6 +1,7 @@
 import express from "express";
 import methodOverride from "method-override";
 import bodyParser from "body-parser";
+import controllers from "./controllers";
 
 const router = express.Router();
 
@@ -10,10 +11,7 @@ const expressSetup = (app: any) => {
   app.use(methodOverride());
   app.use("/api", router);
 
-  // define a route handler for the default home page
-  app.get("/", (req: express.Request, res: express.Response) => {
-    res.send({ greeting: "Hello world!" });
-  });
+  controllers.registerRoutes(router);
 
   return app;
 };
