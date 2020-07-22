@@ -1,5 +1,7 @@
 # tech-test
-This project contains a node / typescript web api; it was developed in one day for a technical test.
+This project contains a node / typescript web API; it was developed in one day for a technical test.
+
+
 
 
 
@@ -30,6 +32,8 @@ Regarding filtering by date: no date fields were specified in the pdf document; 
 
 
 
+
+
 ## Approach
 
 The project's main focus was on architecture - providing a base from which the rest of the API development should be relatively straightforward.
@@ -38,9 +42,13 @@ Given the limited time available, I decided to develop just one simple endpoint 
 
 
 
+
+
 ## Architecture
 
 The aim was to set out a [clean](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/), well-organised, clearly-named, scalable architecture.
+
+
 
 
 
@@ -57,7 +65,10 @@ A very basic test set-up was put in place:
 
 
 
-How to run locally
+## How to run the API locally
 
+- The following programs should be running on the developer machine::
+  - postgres 
+  - node / npm
 
-
+- Set up the database by restoring the data.sql file in the project folder (this file was made via a 'plain' backup in pgdmin)   
