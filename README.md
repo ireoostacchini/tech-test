@@ -57,16 +57,7 @@ A very basic test set-up was put in place:
 
 
 
-indexes
-
-
-
 How to run locally
 
 
 
-
-
-todo
-
-block out env file, send separately
