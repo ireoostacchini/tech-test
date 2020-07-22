@@ -1,8 +1,11 @@
 import FilesManager from "./FilesManager";
 import Db from "../db";
-import FileInfo from "../entities/FileInfo";
+import FileEntity from "../entities/FileEntity";
 
-const data = [new FileInfo("12345", "hi"), new FileInfo("98765", "hi again")];
+const data: FileEntity[] = [
+  { id: "12345", name: "hi", type: "mp4", userId: "xyz" },
+  { id: "67890", name: "hi again", type: "wav", userId: "abcd" },
+];
 const mock = jest.fn((x) => data);
 
 jest.mock("../db/FilesRepository", () => {

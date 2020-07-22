@@ -1,4 +1,4 @@
-import FileInfo from "../entities/FileEntity";
+import FileEntity from "../entities/FileEntity";
 import DbConnectionManager from "./dbConnectionManager";
 
 class FilesRepository {
@@ -13,14 +13,16 @@ class FilesRepository {
     const files = await knex("files");
 
     const result = files.map((file: any) => {
-      return new FileInfo(
-        file.id,
-        file.name,
-        file.type,
-        file.user_id,
-        file.duration,
-        file.size
-      );
+      const entity: FileEntity = {
+        id: file.id,
+        name: file.name,
+        type: file.type,
+        userId: file.user_id,
+        duration: file.duration,
+        size: file.size,
+      };
+
+      return entity;
     });
 
     return result;
