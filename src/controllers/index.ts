@@ -1,10 +1,8 @@
-import homeController from "./homeController";
 import filesController from "./filesController";
 
 const controllers = (() => {
-  const registerRoutes = (router: any) => {
-    homeController.registerRoutes(router);
-    filesController.registerRoutes(router);
+  const registerRoutes = (router: any, business: any, db: any) => {
+    filesController.registerRoutes(router, business, db);
   };
 
   return {

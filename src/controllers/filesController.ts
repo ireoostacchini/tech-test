@@ -1,14 +1,14 @@
 import express from "express";
 
-import business from "../business";
-
 const filesController = (() => {
-  const registerRoutes = (router: any) => {
+  const registerRoutes = (router: any, business: any, db: any) => {
     router.get(
       "/files",
       async (req: express.Request, res: express.Response, next: any) => {
         try {
-          res.json(await business.filesManager().getFiles());
+          const fileManager = business.filesManager(db);
+
+          res.json(await fileManager.getFiles());
         } catch (err) {
           next(err);
         }

@@ -3,6 +3,7 @@ import methodOverride from "method-override";
 import bodyParser from "body-parser";
 import controllers from "./controllers";
 import business from "./business";
+import db from "./db";
 
 const router = express.Router();
 
@@ -12,7 +13,7 @@ const expressSetup = (app: any) => {
   app.use(methodOverride());
   app.use("/api", router);
 
-  controllers.registerRoutes(router);
+  controllers.registerRoutes(router, business, db);
 
   return app;
 };
