@@ -12,14 +12,16 @@ class FilesManager {
     const entities = await this._db.filesRepository().getFiles();
 
     const dtos = entities.map((entity: FileEntity) => {
-      return new FileDto(
-        entity.id,
-        entity.name,
-        entity.type,
-        entity.userId,
-        entity.duration,
-        entity.size
-      );
+      const dto: FileDto = {
+        id: entity.id,
+        name: entity.name,
+        type: entity.type,
+        userId: entity.userId,
+        duration: entity.duration,
+        size: entity.size,
+      };
+
+      return dto;
     });
 
     return { files: dtos };

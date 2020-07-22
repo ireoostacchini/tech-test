@@ -17,7 +17,7 @@ class FilesRepository {
         file.id,
         file.name,
         file.type,
-        file.userId,
+        file.user_id,
         file.duration,
         file.size
       );
