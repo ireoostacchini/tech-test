@@ -4,7 +4,6 @@ import FileInfo from "../entities/FileInfo";
 
 const data = [new FileInfo("12345", "hi"), new FileInfo("98765", "hi again")];
 const mock = jest.fn((x) => data);
-const db = new Db(null);
 
 jest.mock("../db/FilesRepository", () => {
   return jest.fn().mockImplementation(() => {
@@ -14,7 +13,7 @@ jest.mock("../db/FilesRepository", () => {
 
 describe("FileManager", () => {
   it("can get files", async () => {
-    const filesManager = new FilesManager(db);
+    const filesManager = new FilesManager(new Db(null));
 
     const result = await filesManager.getFiles();
 
