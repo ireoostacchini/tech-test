@@ -48,7 +48,7 @@ Given the limited time available, I decided to develop just one simple endpoint 
 
 The aim was to set out a [clean](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/), well-organised, clearly-named, scalable architecture.
 
-
+!['](https://github.com/ireoostacchini/tech-test/blob/master/docs/tech-test-architecture.png)
 
 
 
