@@ -3,7 +3,7 @@ import IBusiness from "./src/business/IBusiness";
 import Business from "./src/business";
 import IDb from "./src/db/IDb";
 import Db from "./src/db";
-import DbConnectionManager from "./src/db/dbConnectionManager";
+import DbConnectionManager from "./src/db/DbConnectionManager";
 
 const container = new Container();
 container.bind<IBusiness>("IBusiness").to(Business);
