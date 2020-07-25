@@ -12,7 +12,7 @@
       "*": ["node_modules/*"]
     },
     "lib": ["es6", "dom"],
-    "types": ["reflect-metadata"],
+    "types": ["reflect-metadata", "jest"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
