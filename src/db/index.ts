@@ -1,14 +1,15 @@
 import FilesRepository from "./FilesRepository";
 import DbConnectionManager from "./dbConnectionManager";
+import IDb from "./IDb";
 
-class Db {
+class Db implements IDb {
   private _dbConnectionManager: DbConnectionManager;
 
   constructor(dbConnectionManager: DbConnectionManager) {
     this._dbConnectionManager = dbConnectionManager;
   }
 
-  filesRepository() {
+  filesRepository(): FilesRepository {
     return new FilesRepository(this._dbConnectionManager);
   }
 }

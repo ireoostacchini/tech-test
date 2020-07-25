@@ -1,8 +1,8 @@
 import express from "express";
-import Business from "../business";
+import IBusiness from "../business/IBusiness";
 
 class FilesController {
-  registerRoutes(router: any, business: Business) {
+  registerRoutes(router: any, business: IBusiness) {
     router.get(
       "/files",
       async (req: express.Request, res: express.Response, next: any) => {
