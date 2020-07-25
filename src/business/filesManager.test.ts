@@ -22,6 +22,6 @@ describe("FileManager", () => {
 
     const result = await filesManager.getFiles();
 
-    expect(result.files).toEqual(data);
+    expect(result).toEqual(data);
   });
 });

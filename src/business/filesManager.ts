@@ -8,7 +8,7 @@ class FilesManager {
   constructor(db: IDb) {
     this._db = db;
   }
-  async getFiles() {
+  async getFiles(): Promise<FileDto[]> {
     const entities = await this._db.filesRepository().getFiles();
 
     const dtos = entities.map((entity: FileEntity) => {
@@ -24,7 +24,7 @@ class FilesManager {
       return dto;
     });
 
-    return { files: dtos };
+    return dtos;
   }
 }
 

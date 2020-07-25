@@ -7,7 +7,11 @@ class FilesController {
       "/files",
       async (req: express.Request, res: express.Response, next: any) => {
         try {
-          const result = await business.filesManager().getFiles();
+          const files = await business.filesManager().getFiles();
+
+          const result = {
+            files,
+          };
 
           res.json(result);
         } catch (err) {
