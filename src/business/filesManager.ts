@@ -1,11 +1,11 @@
 import FileEntity from "../entities/FileEntity";
 import FileDto from "../dto/FileDto";
-import Db from "../db";
+import IDb from "../db/IDb";
 
 class FilesManager {
-  private _db: Db;
+  private _db: IDb;
 
-  constructor(db: Db) {
+  constructor(db: IDb) {
     this._db = db;
   }
   async getFiles() {
