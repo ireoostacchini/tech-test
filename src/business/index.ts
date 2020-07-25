@@ -10,7 +10,7 @@ import IDb from "../db/IDb";
 class Business implements IBusiness {
   private _db: Db;
 
-  constructor(@inject db: IDb) {
+  constructor(@inject("IDb") db: IDb) {
     this._db = db;
   }
 

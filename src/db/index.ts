@@ -1,16 +1,20 @@
 import FilesRepository from "./FilesRepository";
 import DbConnectionManager from "./dbConnectionManager";
 import IDb from "./IDb";
+import { injectable, inject } from "inversify";
 
+@injectable()
 class Db implements IDb {
-  private _dbConnectionManager: DbConnectionManager;
+  dbConnectionManager: DbConnectionManager;
 
-  constructor(dbConnectionManager: DbConnectionManager) {
-    this._dbConnectionManager = dbConnectionManager;
+  constructor(
+    @inject("DbConnectionManager") dbConnectionManager: DbConnectionManager
+  ) {
+    this.dbConnectionManager = dbConnectionManager;
   }
 
   filesRepository(): FilesRepository {
-    return new FilesRepository(this._dbConnectionManager);
+    return new FilesRepository(this.dbConnectionManager);
   }
 }
 export default Db;

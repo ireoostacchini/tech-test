@@ -17,13 +17,14 @@ const expressSetup = (app: any) => {
   app.use(methodOverride());
   app.use("/api", router);
 
-  var db = container.get<IDb>("IDb");
-  var business = container.get<IBusiness>("IBusiness");
+  // const dbConfig = container.get<DbConnectionManager>("DbConnectionManager");
+  // const db = container.get<IDb>("IDb");
+  const business = container.get<IBusiness>("IBusiness");
 
   // poor person's DI...
-  const dbConfig = new DbConnectionManager();
+  // const dbConfig = new DbConnectionManager();
   // const db = new Db(dbConfig);
-  //const business = new Business(db);
+  // const business = new Business(db);
 
   new Controllers().registerRoutes(router, business);
 
