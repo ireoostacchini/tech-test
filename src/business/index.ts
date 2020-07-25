@@ -5,12 +5,13 @@ import FilesManager from "./FilesManager";
 import Db from "../db";
 import IBusiness from "./IBusiness";
 import IDb from "../db/IDb";
+import { TYPES } from "../constants/types";
 
 @injectable()
 class Business implements IBusiness {
   private _db: Db;
 
-  constructor(@inject("IDb") db: IDb) {
+  constructor(@inject(TYPES.IDb) db: IDb) {
     this._db = db;
   }
 
