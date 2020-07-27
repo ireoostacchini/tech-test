@@ -28,7 +28,7 @@ For the GET endpoints, the **page** and **page-size** querystring parameters (bo
 
 Regarding filtering by date: no date fields were specified in the pdf document; if we assume that the files resource might have an uploadDate field, we could add **from** and **to** optional parameters
 
-- e.g. /reports/files-by-user?from=2020-010-01
+- e.g. /reports/files-by-user?from=2020-10-01
 
 
 
