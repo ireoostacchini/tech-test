@@ -1,5 +1,5 @@
-import FilesRepository from "./FilesRepository";
-import DbConnectionManager from "./DbConnectionManager";
+import FilesRepository from "./filesRepository";
+import DbConnectionManager from "./dbConnectionManager";
 
 interface IDb {
   dbConnectionManager: DbConnectionManager;

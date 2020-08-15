@@ -1,4 +1,4 @@
-import FilesManager from "./FilesManager";
+import FilesManager from "./filesManager";
 
 interface IBusiness {
   filesManager(): FilesManager;

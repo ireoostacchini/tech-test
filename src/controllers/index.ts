@@ -1,4 +1,4 @@
-import FilesController from "./FilesController";
+import FilesController from "./filesController";
 import Business from "../business";
 import IBusiness from "../business/IBusiness";
 

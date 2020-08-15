@@ -1,5 +1,5 @@
-import FilesRepository from "./FilesRepository";
-import DbConnectionManager from "./DbConnectionManager";
+import FilesRepository from "./filesRepository";
+import DbConnectionManager from "./dbConnectionManager";
 import IDb from "./IDb";
 import { injectable, inject } from "inversify";
 import { TYPES } from "../constants/types";

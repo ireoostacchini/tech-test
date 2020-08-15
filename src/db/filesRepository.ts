@@ -1,5 +1,5 @@
 import FileEntity from "../entities/FileEntity";
-import DbConnectionManager from "./DbConnectionManager";
+import DbConnectionManager from "./dbConnectionManager";
 
 class FilesRepository {
   private _dbConnectionManager: DbConnectionManager;
