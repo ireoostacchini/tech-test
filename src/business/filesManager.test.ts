@@ -1,6 +1,6 @@
 //https://stackoverflow.com/questions/37534890/inversify-js-reflect-hasownmetadata-is-not-a-function
 import "reflect-metadata";
-import FilesManager from "./FilesManager";
+import FilesManager from "./filesManager";
 import Db from "../db";
 import FileEntity from "../entities/FileEntity";
 
@@ -10,7 +10,7 @@ const data: FileEntity[] = [
 ];
 const mock = jest.fn((x) => data);
 
-jest.mock("../db/FilesRepository", () => {
+jest.mock("../db/filesRepository", () => {
   return jest.fn().mockImplementation(() => {
     return { getFiles: mock };
   });
