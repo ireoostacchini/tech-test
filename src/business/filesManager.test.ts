@@ -1,4 +1,4 @@
-//https://stackoverflow.com/questions/37534890/inversify-js-reflect-hasownmetadata-is-not-a-function
+// https://stackoverflow.com/questions/37534890/inversify-js-reflect-hasownmetadata-is-not-a-function
 import "reflect-metadata";
 import FilesManager from "./filesManager";
 import Db from "../db";
