@@ -1,5 +1,5 @@
 # tech-test
-This project contains a node / typescript web API; it was developed in one day for a technical test.
+This project contains a node / typescript web API; it was developed in one day for a technical test. (The DI branch was added later, and implements dependency injection). 
 
 
 
