@@ -1,5 +1,5 @@
 const TYPES = {
-  DbConnectionManager: "DbConnectionManager",
+  IDbConnectionManager: "IDbConnectionManager",
   IDb: "IDb",
   IBusiness: "IBusiness"
 };

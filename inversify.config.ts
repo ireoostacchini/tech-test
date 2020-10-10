@@ -9,6 +9,6 @@ import { TYPES } from "./src/constants/types";
 const container = new Container();
 container.bind<IBusiness>(TYPES.IBusiness).to(Business);
 container.bind<IDb>(TYPES.IDb).to(Db);
-container.bind<DbConnectionManager>(TYPES.DbConnectionManager).toSelf();
+container.bind<DbConnectionManager>(TYPES.IDbConnectionManager).to(DbConnectionManager);
 
 export default container;

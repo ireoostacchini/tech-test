@@ -3,13 +3,14 @@ import DbConnectionManager from "./dbConnectionManager";
 import IDb from "./IDb";
 import { injectable, inject } from "inversify";
 import { TYPES } from "../constants/types";
+import IDbConnectionManager from "./IDbConnectionManager";
 
 @injectable()
 class Db implements IDb {
-  dbConnectionManager: DbConnectionManager;
+  dbConnectionManager: IDbConnectionManager;
 
   constructor(
-    @inject(TYPES.DbConnectionManager) dbConnectionManager: DbConnectionManager
+    @inject(TYPES.IDbConnectionManager) dbConnectionManager: IDbConnectionManager
   ) {
     this.dbConnectionManager = dbConnectionManager;
   }
