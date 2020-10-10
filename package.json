@@ -11,8 +11,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "e2e": "cross-env BASE_URL=http://127.0.0.1:8080/api jest --config=./jest.config.e2e.json",
-    "e2e:watch": "cross-env BASE_URL=http://127.0.0.1:8080/api jest --config=./jest.config.e2e.json --watch"
+    "e2e": "cross-env BASE_URL=http://127.0.0.1:3001/api jest --config=./jest.config.e2e.json",
+    "e2e:watch": "cross-env BASE_URL=http://127.0.0.1:3001/api jest --config=./jest.config.e2e.json --watch"
   },
   "repository": {
     "type": "git",

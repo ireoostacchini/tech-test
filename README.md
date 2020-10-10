@@ -75,9 +75,9 @@ A very basic test set-up was put in place:
 - fill in the environment variables in the .env.development.json file in the project folder
 - at a command prompt, navigate to the project folder and run npm install
 - run the npm scripts contained in the package.json file:
-  - **npm run start** (to run the API on localhost port 8080)
+  - **npm run start** (to run the API on localhost port 3001)
   - **npm run test** (to run the unit test project)
-- you should now be able to hit the GET /files endpoint at http://localhost:8080/api/files
+- you should now be able to hit the GET /files endpoint at http://localhost:3001/api/files
 - to run the e2e project:
   - have the API running
   - at another command prompt (in the project folder), run  **npm run e2e**
