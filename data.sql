@@ -24,7 +24,7 @@ SET default_table_access_method = heap;
 
 --
 -- TOC entry 204 (class 1259 OID 16426)
--- Name: countries; Type: TABLE; Schema: public; Owner: postgres
+-- Name: countries; Type: TABLE; Schema: public; Owner: admin
 --
 
 CREATE TABLE public.countries (
@@ -33,11 +33,11 @@ CREATE TABLE public.countries (
 );
 
 
-ALTER TABLE public.countries OWNER TO postgres;
+ALTER TABLE public.countries OWNER TO admin;
 
 --
 -- TOC entry 205 (class 1259 OID 16431)
--- Name: country_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: country_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
 --
 
 CREATE SEQUENCE public.country_id_seq
@@ -49,12 +49,12 @@ CREATE SEQUENCE public.country_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.country_id_seq OWNER TO postgres;
+ALTER TABLE public.country_id_seq OWNER TO admin;
 
 --
 -- TOC entry 2841 (class 0 OID 0)
 -- Dependencies: 205
--- Name: country_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: country_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
 --
 
 ALTER SEQUENCE public.country_id_seq OWNED BY public.countries.id;
@@ -62,7 +62,7 @@ ALTER SEQUENCE public.country_id_seq OWNED BY public.countries.id;
 
 --
 -- TOC entry 203 (class 1259 OID 16421)
--- Name: files; Type: TABLE; Schema: public; Owner: postgres
+-- Name: files; Type: TABLE; Schema: public; Owner: admin
 --
 
 CREATE TABLE public.files (
@@ -75,11 +75,11 @@ CREATE TABLE public.files (
 );
 
 
-ALTER TABLE public.files OWNER TO postgres;
+ALTER TABLE public.files OWNER TO admin;
 
 --
 -- TOC entry 202 (class 1259 OID 16416)
--- Name: users; Type: TABLE; Schema: public; Owner: postgres
+-- Name: users; Type: TABLE; Schema: public; Owner: admin
 --
 
 CREATE TABLE public.users (
@@ -89,60 +89,37 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO postgres;
+ALTER TABLE public.users OWNER TO admin;
 
 --
 -- TOC entry 2695 (class 2604 OID 16450)
--- Name: countries id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: countries id; Type: DEFAULT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.countries ALTER COLUMN id SET DEFAULT nextval('public.country_id_seq'::regclass);
 
 
---
--- TOC entry 2834 (class 0 OID 16426)
--- Dependencies: 204
--- Data for Name: countries; Type: TABLE DATA; Schema: public; Owner: postgres
---
 
-COPY public.countries (id, name) FROM stdin;
-1	UK
-2	Italy
-\.
+insert into public.countries (id, name) values (1, 'UK'), (2, 'Italy')
 
 
---
--- TOC entry 2833 (class 0 OID 16421)
--- Dependencies: 203
--- Data for Name: files; Type: TABLE DATA; Schema: public; Owner: postgres
---
+insert into public.users (id, name, country_id) values
+('1ac2d866-d5a0-4de7-9736-20b660e4b675', 'user1', 1),
+('f33a49d9-5487-4b23-a7db-cf3fcc994c08', 'user2', 1),
+('c316091e-c09a-4c75-b95b-87f1913a3c5c', 'user3', 2)
 
-COPY public.files (id, name, type, duration, size, user_id) FROM stdin;
-1d9e697c-9059-4544-ba46-ef698ea2ee1c	last file	mp4	1000	2500	1ac2d866-d5a0-4de7-9736-20b660e4b675
-273dcc39-454c-4fa1-a1e0-2e6ae0978a63	another file	wav	50000	1234500	c316091e-c09a-4c75-b95b-87f1913a3c5c
-644727e3-abac-4ea7-a889-3141979b40f3	yet another file	wav	8848484	\N	1ac2d866-d5a0-4de7-9736-20b660e4b675
-867c2226-2433-4681-b125-1f83e6801e06	first file	mp4	\N	200000	c316091e-c09a-4c75-b95b-87f1913a3c5c
-e25613ff-a115-4a07-b809-9cc095c6c505	third file	mp4	345654	20000	1ac2d866-d5a0-4de7-9736-20b660e4b675
-\.
-
-
---
--- TOC entry 2832 (class 0 OID 16416)
--- Dependencies: 202
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.users (id, name, country_id) FROM stdin;
-1ac2d866-d5a0-4de7-9736-20b660e4b675	user1	1
-f33a49d9-5487-4b23-a7db-cf3fcc994c08	user2	1
-c316091e-c09a-4c75-b95b-87f1913a3c5c	user3	2
-\.
+insert into public.files (id, name, type, duration, size, user_id) values
+('1d9e697c-9059-4544-ba46-ef698ea2ee1c', 'last file', 'mp4', 1000, 2500, '1ac2d866-d5a0-4de7-9736-20b660e4b675'),
+('273dcc39-454c-4fa1-a1e0-2e6ae0978a63', 'another file', 'wav', 50000, 1234500, 'c316091e-c09a-4c75-b95b-87f1913a3c5c'),
+('644727e3-abac-4ea7-a889-3141979b40f3', 'yet another file', 'wav', 8848484, NULL, '1ac2d866-d5a0-4de7-9736-20b660e4b675'),
+('867c2226-2433-4681-b125-1f83e6801e06', 'first file', 'mp4', NULL, 200000, 'c316091e-c09a-4c75-b95b-87f1913a3c5c'),
+('e25613ff-a115-4a07-b809-9cc095c6c505', 'third file', 'mp4', 345654, 20000, '1ac2d866-d5a0-4de7-9736-20b660e4b675')
 
 
 --
 -- TOC entry 2842 (class 0 OID 0)
 -- Dependencies: 205
--- Name: country_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: country_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
 --
 
 SELECT pg_catalog.setval('public.country_id_seq', 2, true);
@@ -150,7 +127,7 @@ SELECT pg_catalog.setval('public.country_id_seq', 2, true);
 
 --
 -- TOC entry 2697 (class 2606 OID 16420)
--- Name: users Users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: users Users_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.users
@@ -159,7 +136,7 @@ ALTER TABLE ONLY public.users
 
 --
 -- TOC entry 2703 (class 2606 OID 16438)
--- Name: countries country_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: countries country_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.countries
@@ -168,7 +145,7 @@ ALTER TABLE ONLY public.countries
 
 --
 -- TOC entry 2701 (class 2606 OID 16425)
--- Name: files files_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: files files_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.files
@@ -177,7 +154,7 @@ ALTER TABLE ONLY public.files
 
 --
 -- TOC entry 2698 (class 1259 OID 16483)
--- Name: IX_files_type; Type: INDEX; Schema: public; Owner: postgres
+-- Name: IX_files_type; Type: INDEX; Schema: public; Owner: admin
 --
 
 CREATE INDEX "IX_files_type" ON public.files USING btree (type);
@@ -185,7 +162,7 @@ CREATE INDEX "IX_files_type" ON public.files USING btree (type);
 
 --
 -- TOC entry 2699 (class 1259 OID 16482)
--- Name: IX_files_user_id; Type: INDEX; Schema: public; Owner: postgres
+-- Name: IX_files_user_id; Type: INDEX; Schema: public; Owner: admin
 --
 
 CREATE INDEX "IX_files_user_id" ON public.files USING btree (user_id);
@@ -193,7 +170,7 @@ CREATE INDEX "IX_files_user_id" ON public.files USING btree (user_id);
 
 --
 -- TOC entry 2704 (class 2606 OID 16439)
--- Name: users FK_country_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: users FK_country_id; Type: FK CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.users
@@ -202,7 +179,7 @@ ALTER TABLE ONLY public.users
 
 --
 -- TOC entry 2705 (class 2606 OID 16444)
--- Name: files FK_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: files FK_user_id; Type: FK CONSTRAINT; Schema: public; Owner: admin
 --
 
 ALTER TABLE ONLY public.files
